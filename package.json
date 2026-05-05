@@ -1,0 +1,30 @@
+{
+  "name": "refactoring-to-design-patterns",
+  "version": "1.0.0",
+  "description": "Refactoring to Design Patterns - Playground",
+  "type": "module",
+  "main": "dist/run.js",
+  "scripts": {
+    "dev": "tsx src/run.ts",
+    "build": "tsc",
+    "start": "node dist/run.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "test:cov": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
+  },
+  "keywords": [
+    "design-patterns",
+    "refactoring",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}
