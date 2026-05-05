@@ -3,16 +3,14 @@ import { SearchParams } from '../before/SearchParams.js';
 import { SearchType } from '../before/SearchType.js';
 import { Category } from '../before/Category.js';
 import { SortBy } from '../before/SortBy.js';
-import { Search } from '../before/Search.js';
-import { SearchService } from '../before/SearchService.js';
+import { CriteriaFactory } from '../after/CriteriaFactory.js';
 
-describe('Factory Pattern - Before (with ifs)', () => {
+describe('Factory Pattern - After (CriteriaFactory)', () => {
   it('should create normal search criteria with default values', () => {
-    const searchService = new SearchService();
-    const search = new Search(searchService);
     const params = new SearchParams();
+    const factory = new CriteriaFactory(params);
 
-    const criteria = (search as any).createCriteria(params);
+    const criteria = factory.createCriteria();
 
     expect(criteria.pagination).toBe(15);
     expect(criteria.sortBy).toBe(SortBy.RELEVANCE);
@@ -23,9 +21,8 @@ describe('Factory Pattern - Before (with ifs)', () => {
     const params = new SearchParams();
     params.resultsPerPage = 20;
 
-    const criteria = (new Search(new SearchService()) as any).createCriteria(
-      params
-    );
+    const factory = new CriteriaFactory(params);
+    const criteria = factory.createCriteria();
 
     expect(criteria.pagination).toBe(20);
   });
@@ -36,9 +33,8 @@ describe('Factory Pattern - Before (with ifs)', () => {
     params.category = Category.ELECTRONICS;
     params.sortBy = SortBy.PRICE;
 
-    const criteria = (new Search(new SearchService()) as any).createCriteria(
-      params
-    );
+    const factory = new CriteriaFactory(params);
+    const criteria = factory.createCriteria();
 
     expect(criteria.category).toBe(Category.ON_SALE);
     expect(criteria.sortBy).toBe(SortBy.RECENT);
@@ -49,9 +45,8 @@ describe('Factory Pattern - Before (with ifs)', () => {
     params.searchType = SearchType.BY_CATEGORY;
     params.category = Category.ELECTRONICS;
 
-    const criteria = (new Search(new SearchService()) as any).createCriteria(
-      params
-    );
+    const factory = new CriteriaFactory(params);
+    const criteria = factory.createCriteria();
 
     expect(criteria.category).toBe(Category.ELECTRONICS);
     expect(criteria.sortBy).toBe(SortBy.RECENT);
@@ -62,9 +57,8 @@ describe('Factory Pattern - Before (with ifs)', () => {
     params.searchType = SearchType.BY_CATEGORY;
     params.category = Category.ALL;
 
-    const criteria = (new Search(new SearchService()) as any).createCriteria(
-      params
-    );
+    const factory = new CriteriaFactory(params);
+    const criteria = factory.createCriteria();
 
     expect(criteria.category).toBe(Category.ALL);
     expect(criteria.sortBy).toBe(SortBy.RELEVANCE);

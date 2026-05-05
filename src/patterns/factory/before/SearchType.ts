@@ -1,0 +1,5 @@
+export enum SearchType {
+  NORMAL = 'NORMAL',
+  BY_CATEGORY = 'BY_CATEGORY',
+  PROMOTIONAL = 'PROMOTIONAL',
+}

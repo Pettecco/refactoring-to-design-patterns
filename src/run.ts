@@ -1,1 +1,1 @@
-console.log("Refactoring to Design Patterns - Playground");
+console.log('Refactoring to Design Patterns - Playground');
