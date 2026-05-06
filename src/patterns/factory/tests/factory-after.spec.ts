@@ -3,7 +3,7 @@ import { SearchParams } from '../before/SearchParams.js';
 import { SearchType } from '../before/SearchType.js';
 import { Category } from '../before/Category.js';
 import { SortBy } from '../before/SortBy.js';
-import { CriteriaFactory } from '../after/CriteriaFactory.js';
+import { CriteriaFactory } from '../after/simple-factory/CriteriaFactory.js';
 
 describe('Factory Pattern - After (CriteriaFactory)', () => {
   it('should create normal search criteria with default values', () => {

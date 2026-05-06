@@ -1,8 +1,8 @@
-import { Category } from '../before/Category.js';
-import { SearchCriteria } from '../before/SearchCriteria.js';
-import { SearchParams } from '../before/SearchParams.js';
-import { SearchType } from '../before/SearchType.js';
-import { SortBy } from '../before/SortBy.js';
+import { Category } from '../../before/Category.js';
+import { SearchCriteria } from '../../before/SearchCriteria.js';
+import { SearchParams } from '../../before/SearchParams.js';
+import { SearchType } from '../../before/SearchType.js';
+import { SortBy } from '../../before/SortBy.js';
 
 export class CriteriaFactory {
   private params: SearchParams;
@@ -27,7 +27,7 @@ export class CriteriaFactory {
     return criteria;
   }
 
-  private   createCategoryCriteria(): SearchCriteria {
+  private createCategoryCriteria(): SearchCriteria {
     const criteria = new SearchCriteria();
     criteria.pagination = this.params.resultsPerPage;
     criteria.category = this.params.category;

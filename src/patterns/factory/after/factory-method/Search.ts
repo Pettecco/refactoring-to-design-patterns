@@ -1,6 +1,5 @@
-import { SearchParams } from '../before/SearchParams.js';
-import { SearchService } from '../before/SearchService.js';
-import { CriteriaFactory } from './CriteriaFactory.js';
+import { SearchService } from '../../before/SearchService.js';
+import { SearchCriteriaFactory } from './SearchCriteriaFactory.js';
 
 export class Search {
   private searchService: SearchService;
@@ -9,8 +8,7 @@ export class Search {
     this.searchService = searchService;
   }
 
-  searchBy(params: SearchParams): void {
-    const factory = new CriteriaFactory(params);
+  searchBy(factory: SearchCriteriaFactory): void {
     const criteria = factory.createCriteria();
     const resultIds = this.searchService.performSearchWith(criteria);
     this.findProductsByIds(resultIds);
