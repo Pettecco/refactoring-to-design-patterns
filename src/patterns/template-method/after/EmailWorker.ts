@@ -1,6 +1,6 @@
-import { TemplateWorker } from './TemplateWorker';
-import { User, SendEmail, EmailSent, EmailType, TimeoutException } from './types';
-import { EmailService } from './EmailService';
+import { TemplateWorker } from './TemplateWorker.js';
+import { User, SendEmail, EmailType, TimeoutException } from './types.js';
+import { EmailService } from './EmailService.js';
 
 export class EmailWorker extends TemplateWorker {
   private emailService: EmailService;
@@ -18,7 +18,7 @@ export class EmailWorker extends TemplateWorker {
     return {
       recipients: [],
       subject: '',
-      emailsSent: 0
+      emailsSent: 0,
     } as EmailSent;
   }
 
@@ -43,7 +43,7 @@ export class EmailWorker extends TemplateWorker {
   private findUser(userId: number): User {
     const users: Record<number, User> = {
       1: { id: 1, name: 'User1', email: 'user1@email.com' },
-      2: { id: 2, name: 'User2', email: 'user2@email.com' }
+      2: { id: 2, name: 'User2', email: 'user2@email.com' },
     };
     return users[userId] || { id: 0, name: 'Unknown', email: '' };
   }
@@ -52,7 +52,7 @@ export class EmailWorker extends TemplateWorker {
     const bodies: Record<EmailType, string> = {
       [EmailType.INVITATION]: `Hello ${user.name}, you have been invited!`,
       [EmailType.PROMOTIONAL]: `Hello ${user.name}, check out our promotion!`,
-      [EmailType.INFORMATIONAL]: `Hello ${user.name}, here is your information.`
+      [EmailType.INFORMATIONAL]: `Hello ${user.name}, here is your information.`,
     };
     return bodies[emailType] || 'Email without content';
   }
@@ -61,7 +61,7 @@ export class EmailWorker extends TemplateWorker {
     const subjects: Record<EmailType, string> = {
       [EmailType.INVITATION]: `Invitation sent by ${user.name}`,
       [EmailType.PROMOTIONAL]: `Special promotion for ${user.name}`,
-      [EmailType.INFORMATIONAL]: `Important information for ${user.name}`
+      [EmailType.INFORMATIONAL]: `Important information for ${user.name}`,
     };
     return subjects[emailType] || 'Unknown subject';
   }

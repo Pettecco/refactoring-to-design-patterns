@@ -1,3 +1,4 @@
+import { describe, it, expect } from '@jest/globals';
 import { EmailWorker } from '../after/EmailWorker';
 import { FileImportWorker } from '../after/FileImportWorker';
 import { EmailService } from '../after/EmailService';
@@ -12,7 +13,7 @@ describe('Template Method (after)', () => {
     const sendEmail: SendEmail = {
       userId: 1,
       emailType: EmailType.INVITATION,
-      recipients: ['email@email.com', 'other@email.com', 'one@email.com']
+      recipients: ['email@email.com', 'other@email.com', 'one@email.com'],
     };
 
     const email = emailWorker.execute(sendEmail);
@@ -39,7 +40,11 @@ describe('Template Method (after)', () => {
     const fileService = new FileService();
     const fileWorker = new FileImportWorker(fileService);
 
-    const emailResult = emailWorker.execute({ userId: 1, emailType: EmailType.INVITATION, recipients: ['test@email.com'] });
+    const emailResult = emailWorker.execute({
+      userId: 1,
+      emailType: EmailType.INVITATION,
+      recipients: ['test@email.com'],
+    });
     const fileResult = fileWorker.execute('test.csv');
 
     expect(emailResult.emailsSent).toBe(1);

@@ -1,4 +1,4 @@
-import { AuthenticationStrategy } from '../interfaces/AuthenticationStrategy';
+import { AuthenticationStrategy } from '../interfaces/AuthenticationStrategy.js';
 
 export class ZuiterStrategy implements AuthenticationStrategy {
   private static SUCCESS = 202;
@@ -15,8 +15,8 @@ export class ZuiterStrategy implements AuthenticationStrategy {
 
   private authenticateViaPost(userId: string): number {
     const response: Record<string, number> = {
-      'paulaS2livros': ZuiterStrategy.SUCCESS,
-      'pendingUser': ZuiterStrategy.PENDING
+      paulaS2livros: ZuiterStrategy.SUCCESS,
+      pendingUser: ZuiterStrategy.PENDING,
     };
     return response[userId] || 404;
   }

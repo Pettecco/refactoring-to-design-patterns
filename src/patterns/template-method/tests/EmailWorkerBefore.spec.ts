@@ -1,3 +1,4 @@
+import { describe, it, expect } from '@jest/globals';
 import { EmailWorker } from '../before/EmailWorker';
 import { EmailService } from '../before/EmailService';
 import { SendEmail, EmailType } from '../before/types';
@@ -10,7 +11,7 @@ describe('EmailWorker (before Template Method)', () => {
     const sendEmail: SendEmail = {
       userId: 1,
       emailType: EmailType.INVITATION,
-      recipients: ['email@email.com', 'other@email.com', 'one@email.com']
+      recipients: ['email@email.com', 'other@email.com', 'one@email.com'],
     };
 
     const email = emailWorker.send(sendEmail);
@@ -27,7 +28,7 @@ describe('EmailWorker (before Template Method)', () => {
     const sendEmail: SendEmail = {
       userId: 2,
       emailType: EmailType.PROMOTIONAL,
-      recipients: ['client@email.com']
+      recipients: ['client@email.com'],
     };
 
     const email = emailWorker.send(sendEmail);

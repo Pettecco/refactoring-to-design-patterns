@@ -1,3 +1,4 @@
+import { describe, it, expect } from '@jest/globals';
 import { Login } from '../after/Login';
 import { AuthenticationMethod } from '../after/types';
 import { AuthenticationStrategy } from '../after/interfaces/AuthenticationStrategy';
@@ -53,14 +54,17 @@ class ZuiterStrategyFake implements AuthenticationStrategy {
 describe('Login (after Strategy)', () => {
   it('should authenticate successfully via FaceNote', () => {
     const strategies = new Map<string, AuthenticationStrategy>();
-    strategies.set(AuthenticationMethod.VIA_FACENOTE, new FaceNoteStrategyFake());
+    strategies.set(
+      AuthenticationMethod.VIA_FACENOTE,
+      new FaceNoteStrategyFake()
+    );
     strategies.set(AuthenticationMethod.VIA_ZUITER, new ZuiterStrategyFake());
 
     const login = new Login(strategies);
 
     const data = {
       username: 'Gil',
-      method: AuthenticationMethod.VIA_FACENOTE
+      method: AuthenticationMethod.VIA_FACENOTE,
     };
 
     const response = login.authenticate(data);
@@ -71,14 +75,17 @@ describe('Login (after Strategy)', () => {
 
   it('should fail with revoked access via FaceNote', () => {
     const strategies = new Map<string, AuthenticationStrategy>();
-    strategies.set(AuthenticationMethod.VIA_FACENOTE, new FaceNoteStrategyFake());
+    strategies.set(
+      AuthenticationMethod.VIA_FACENOTE,
+      new FaceNoteStrategyFake()
+    );
     strategies.set(AuthenticationMethod.VIA_ZUITER, new ZuiterStrategyFake());
 
     const login = new Login(strategies);
 
     const data = {
       username: 'Ana',
-      method: AuthenticationMethod.VIA_FACENOTE
+      method: AuthenticationMethod.VIA_FACENOTE,
     };
 
     const response = login.authenticate(data);
@@ -89,14 +96,17 @@ describe('Login (after Strategy)', () => {
 
   it('should authenticate successfully via Zuiter', () => {
     const strategies = new Map<string, AuthenticationStrategy>();
-    strategies.set(AuthenticationMethod.VIA_FACENOTE, new FaceNoteStrategyFake());
+    strategies.set(
+      AuthenticationMethod.VIA_FACENOTE,
+      new FaceNoteStrategyFake()
+    );
     strategies.set(AuthenticationMethod.VIA_ZUITER, new ZuiterStrategyFake());
 
     const login = new Login(strategies);
 
     const data = {
       username: 'Gil',
-      method: AuthenticationMethod.VIA_ZUITER
+      method: AuthenticationMethod.VIA_ZUITER,
     };
 
     const response = login.authenticate(data);
@@ -107,13 +117,16 @@ describe('Login (after Strategy)', () => {
 
   it('should return error for invalid method', () => {
     const strategies = new Map<string, AuthenticationStrategy>();
-    strategies.set(AuthenticationMethod.VIA_FACENOTE, new FaceNoteStrategyFake());
+    strategies.set(
+      AuthenticationMethod.VIA_FACENOTE,
+      new FaceNoteStrategyFake()
+    );
 
     const login = new Login(strategies);
 
     const data = {
       username: 'Gil',
-      method: 'VIA_INSTAGRAM' as any
+      method: 'VIA_INSTAGRAM' as any,
     };
 
     const response = login.authenticate(data);

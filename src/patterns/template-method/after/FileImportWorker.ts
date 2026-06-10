@@ -1,6 +1,6 @@
-import { TemplateWorker } from './TemplateWorker';
-import { TimeoutException, ImportResult } from './types';
-import { FileService } from './FileService';
+import { TemplateWorker } from './TemplateWorker.js';
+import { TimeoutException } from './types.js';
+import { FileService } from './FileService.js';
 
 export class FileImportWorker extends TemplateWorker {
   private fileService: FileService;
@@ -18,7 +18,7 @@ export class FileImportWorker extends TemplateWorker {
     return {
       file: '',
       importedRecords: 0,
-      success: false
+      success: false,
     } as ImportResult;
   }
 

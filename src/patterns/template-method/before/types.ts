@@ -7,7 +7,7 @@ export interface User {
 export enum EmailType {
   INVITATION = 'INVITATION',
   PROMOTIONAL = 'PROMOTIONAL',
-  INFORMATIONAL = 'INFORMATIONAL'
+  INFORMATIONAL = 'INFORMATIONAL',
 }
 
 export interface SendEmail {

@@ -1,4 +1,4 @@
-import { AuthenticationStrategy } from '../interfaces/AuthenticationStrategy';
+import { AuthenticationStrategy } from '../interfaces/AuthenticationStrategy.js';
 
 export class FaceNoteStrategy implements AuthenticationStrategy {
   private static SUCCESS = 200;
@@ -16,9 +16,9 @@ export class FaceNoteStrategy implements AuthenticationStrategy {
 
   private authenticateViaPost(userId: string): number {
     const response: Record<string, number> = {
-      'paulaS2livros': FaceNoteStrategy.SUCCESS,
-      'blockedUser': FaceNoteStrategy.BLOCKED,
-      'revokedUser': FaceNoteStrategy.REVOKED
+      paulaS2livros: FaceNoteStrategy.SUCCESS,
+      blockedUser: FaceNoteStrategy.BLOCKED,
+      revokedUser: FaceNoteStrategy.REVOKED,
     };
     return response[userId] || 404;
   }

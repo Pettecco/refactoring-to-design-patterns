@@ -1,5 +1,5 @@
-import { TimeoutException, ImportResult } from './types';
-import { FileService } from './FileService';
+import { TimeoutException, ImportResult } from './types.js';
+import { FileService } from './FileService.js';
 
 export class FileImportWorker {
   private retryLimit: number;
@@ -15,7 +15,7 @@ export class FileImportWorker {
     let result: ImportResult = {
       file: '',
       importedRecords: 0,
-      success: false
+      success: false,
     };
 
     this.retryCount = 0;

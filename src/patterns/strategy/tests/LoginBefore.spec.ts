@@ -1,3 +1,4 @@
+import { describe, it, expect } from '@jest/globals';
 import { Login } from '../before/Login';
 import { AuthenticationMethod } from '../before/types';
 
@@ -30,7 +31,7 @@ describe('Login (before Strategy)', () => {
 
     const data = {
       username: 'Gil',
-      method: AuthenticationMethod.VIA_FACENOTE
+      method: AuthenticationMethod.VIA_FACENOTE,
     };
 
     const response = login.authenticate(data);
@@ -46,7 +47,7 @@ describe('Login (before Strategy)', () => {
 
     const data = {
       username: 'Ana',
-      method: AuthenticationMethod.VIA_FACENOTE
+      method: AuthenticationMethod.VIA_FACENOTE,
     };
 
     const response = login.authenticate(data);

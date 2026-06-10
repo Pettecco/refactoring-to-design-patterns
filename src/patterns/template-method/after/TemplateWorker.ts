@@ -1,4 +1,4 @@
-import { TimeoutException } from './types';
+import { TimeoutException } from './types.js';
 
 export abstract class TemplateWorker {
   private retryLimit: number = 3;

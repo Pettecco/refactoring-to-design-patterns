@@ -1,5 +1,5 @@
-import { User, SendEmail, EmailSent, EmailType, TimeoutException } from './types';
-import { EmailService } from './EmailService';
+import { User, SendEmail, EmailSent, EmailType, TimeoutException } from './types.js';
+import { EmailService } from './EmailService.js';
 
 export class EmailWorker {
   private retryLimit: number;

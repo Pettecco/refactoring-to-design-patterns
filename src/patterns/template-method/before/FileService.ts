@@ -1,4 +1,4 @@
-import { TimeoutException, ImportResult } from './types';
+import { TimeoutException, ImportResult } from './types.js';
 
 export class FileService {
   public import(fileName: string): ImportResult {
@@ -9,7 +9,7 @@ export class FileService {
     return {
       file: fileName,
       importedRecords: 100,
-      success: true
+      success: true,
     };
   }
 }

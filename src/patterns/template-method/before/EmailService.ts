@@ -1,7 +1,11 @@
-import { EmailSent, TimeoutException } from './types';
+import { EmailSent, TimeoutException } from './types.js';
 
 export class EmailService {
-  public sendEmail(subject: string, emailBody: string, recipients: string[]): EmailSent {
+  public sendEmail(
+    subject: string,
+    emailBody: string,
+    recipients: string[]
+  ): EmailSent {
     if (Math.random() > 0.8) {
       throw new TimeoutException('Timeout while sending email');
     }
@@ -9,7 +13,7 @@ export class EmailService {
     return {
       recipients,
       subject,
-      emailsSent: recipients.length
+      emailsSent: recipients.length,
     };
   }
 }
