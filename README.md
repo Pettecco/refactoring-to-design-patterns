@@ -108,11 +108,11 @@ Solução: Criar uma camada adaptadora que converte as respostas do serviço leg
 
 ```typescript
 // Before: Cliente depende diretamente do serviço SOAP
-const cliente = new Cliente(idUniversal, clienteSoap);
+const client = new Client(idUniversal, clientSoap);
 
 // After: Cliente depende de uma interface, Adapter implementa a conversão
-const adapter = new SoapAdapter(clienteSoap);
-const cliente = new Cliente(idUniversal, adapter);
+const adapter = new SoapAdapter(clientSoap);
+const client = new Client(idUniversal, adapter);
 ```
 
 ### 5. State
@@ -125,7 +125,7 @@ Solução: Cada estado é uma classe que sabe como transicionar para o próximo 
 
 ```typescript
 // Before: Muitos ifs para verificar estado atual
-if (estado === EstadoMaria.PEQUENA) { ... }
+if (state === MariaState.SMALL) { ... }
 
 // After: Cada estado gerencia suas próprias transições
 const maria = new MariaCharacter();
@@ -142,20 +142,20 @@ Solução: Builder com valores padrão e métodos fluentes para configuração o
 
 ```typescript
 // Before: Construtor com 9 parâmetros
-const carro = new Carro(
-  modelo,
-  fabricante,
-  ano,
-  placa,
-  cor,
-  km,
-  anoModelo,
-  precoMin,
-  precoAdv
+const car = new Car(
+  model,
+  manufacturer,
+  year,
+  plate,
+  color,
+  mileage,
+  modelYear,
+  minPrice,
+  advertisedPrice
 );
 
 // After: Builder com valores padrão e configuração fluente
-const carro = new ValidCarBuilder()
+const car = new ValidCarBuilder()
   .withModel('Civic')
   .withColor('blue')
   .withMileage(15000)
@@ -172,10 +172,10 @@ Solução: Decorators que podem ser empilhados dinamicamente sobre armas básica
 
 ```typescript
 // Before: Uma classe para cada combinação
-const arma = new MagicFlamingDagger();
+const weapon = new MagicFlamingDagger();
 
 // After: Decorators empilháveis
-const arma = new FlamingWeapon(new MagicWeapon(new Dagger()));
+const weapon = new FlamingWeapon(new MagicWeapon(new Dagger()));
 ```
 
 ### 8. Mediator
