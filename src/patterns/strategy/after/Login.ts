@@ -2,8 +2,6 @@ import { AuthenticationStrategy } from './interfaces/AuthenticationStrategy.js';
 import { LoginData, LoginResponse } from './types.js';
 
 export class Login {
-  private static INVALID_METHOD = -1;
-
   constructor(private strategies: Map<string, AuthenticationStrategy>) {}
 
   public authenticate(loginData: LoginData): LoginResponse {

@@ -1,6 +1,6 @@
-import { AuthenticationMethod, LoginData, LoginResponse } from './types';
-import { FaceNoteLoginService } from './FaceNoteLoginService';
-import { ZuiterLoginService } from './ZuiterLoginService';
+import { AuthenticationMethod, LoginData, LoginResponse } from './types.js';
+import { FaceNoteLoginService } from './FaceNoteLoginService.js';
+import { ZuiterLoginService } from './ZuiterLoginService.js';
 
 export class Login {
   private static FACE_NOTE_SUCCESS = 200;
@@ -31,7 +31,10 @@ export class Login {
     let message = 'authentication failed';
     let status = false;
 
-    if (response === Login.FACE_NOTE_SUCCESS || response === Login.ZUITER_SUCCESS) {
+    if (
+      response === Login.FACE_NOTE_SUCCESS ||
+      response === Login.ZUITER_SUCCESS
+    ) {
       status = true;
       message = 'login successful';
     } else if (response === Login.FACE_NOTE_REVOKED) {
